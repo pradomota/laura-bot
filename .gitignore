@@ -38,5 +38,4 @@ node_modules
 
 # Typescript
 typings/
-lib/
 src/**/*.js
