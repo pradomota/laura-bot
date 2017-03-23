@@ -38,7 +38,7 @@ if (process.env.NODE_ENV === 'development') {
     // so it can be accessed by the MS BotFramework (MS Gateway)
     let runner = new BotServerRunner({
         bot,
-        port: parseInt(process.env.BOT_PORT, 10) || 8080,
+        port: parseInt(process.env.PORT, 10) || 8080,
         appId: process.env.MICROSOFT_APP_ID,
         appPassword: process.env.MICROSOFT_APP_PASSWORD
     });
