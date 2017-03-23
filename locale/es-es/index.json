@@ -8,19 +8,17 @@
         "Good. I'm here if you need something else",
         "Ok. I'll be here if you need some help"
     ],
-    "note.confirm_note": [
-        "Do you want to create the note %s"
+    "seed:seed.hello": [
+      "Hola!",
+      "Que pasa!",
+      "¿Qué tal?"
     ],
-    "note.create_note": [
-        "Ok. I've saved your note."
+    "seed:seed.goodbye": [
+      "Adios!",
+      "Nos vemos",
+      "Hasta nunqui"
     ],
-    "note.cancel_note": [
-        "Ok."
-    ],
-    "seed.hello": [
-      "Hola!"
-    ],
-    "seed.goodbye": [
-      "Adios!"
+    "seed:seed.salut": [
+      "Buenas pollas te comias"
     ]
 }

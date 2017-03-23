@@ -5,7 +5,7 @@ export default [
 ];
 
 function dialog(session: BotBuilder.Session, args: any, next: Function) {
-    let text = session.gettext('seed.hello');
+    let text = session.gettext('seed.salut');
     let meesage = new BotBuilder.Message(session).text(text);
     session.endDialog(meesage);
 }
