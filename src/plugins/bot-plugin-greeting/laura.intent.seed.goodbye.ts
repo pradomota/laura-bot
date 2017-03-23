@@ -5,5 +5,5 @@ export default [
 ];
 
 function dialog(session: BotBuilder.Session, args: any, next: Function) {
-    session.endDialog('seed.goodbye');
+    session.endDialog(session.gettext('seed.goodbye'));
 }
