@@ -1,10 +1,10 @@
 {
-  "name": "seed-bot",
+  "name": "laura-bot",
   "version": "1.0.0",
   "private": true,
-  "description": "Seed project for a conversational bot for Telefonica",
+  "description": "Seed project for a conversational bot for Telefonica Laura",
   "license": "UNLICENSED",
-  "repository": "https://github.com/Telefonica/seed-bot",
+  "repository": "https://github.com/pradomota/laura-bot",
   "author": "TDAF",
   "keywords": [
     "bot"

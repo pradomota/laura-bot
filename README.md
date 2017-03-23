@@ -8,8 +8,8 @@ The app entry point is [app.ts](./src/app.ts).
 Run the following commands to clone the project, install its dependencies (**node 6.x required**) and run the bot in console mode.
 
 ```sh
-git clone git@github.com/Telefonica/seed-bot.git
-cd seed-bot
+git clone git@github.com/pradomota/laura-bot.git
+cd laura-bot
 
 npm install
 npm run dev
