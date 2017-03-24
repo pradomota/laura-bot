@@ -33,5 +33,10 @@
     ],
     "product.image.cuarta-plataforma": [
       "https://s3-eu-west-1.amazonaws.com/laura-bot/products/cuarta-plataforma.png"
+    ],
+    "employee.boss.moto": [
+      "Ojito con el Jefe!",
+      "Aquí está el Boss",
+      "No me toques las palmas que me conozco"
     ]
 }
