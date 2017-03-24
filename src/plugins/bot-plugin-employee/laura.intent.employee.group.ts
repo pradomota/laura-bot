@@ -51,7 +51,7 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
           .addAttachment(choicesKeyboard);
 
         let choices = employees.map(employee => employee.fullname);
-        return BotBuilderExt.Prompts.choice(session, message, choices);
+        session.endDialog(message, choices);
       } catch (e) {
         console.log(e.message);
       }
