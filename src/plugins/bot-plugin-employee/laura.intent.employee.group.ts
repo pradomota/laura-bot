@@ -40,7 +40,7 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
           employees.map(employee =>
             BotBuilder.CardAction.imBack(
               session,
-              session.gettext('suggestion.employee.head.value', employee.fullname.toLowerCase()),
+              session.gettext('suggestion.employee.head.value', employee.fullname.replace(/\b\w/g, function(l: any) {return l.toUpperCase() })),
               employee.fullname)
               .image(employee.pic || 'https://the-pastry-box-project.net/assets/basiks/front/icons/github.png')
             )
