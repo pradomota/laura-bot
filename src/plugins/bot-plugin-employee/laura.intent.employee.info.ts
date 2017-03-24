@@ -38,7 +38,7 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
 
         let photo: BotBuilder.IAttachment = {
           contentType: 'image/png',
-          contentUrl: employee.pick
+          contentUrl: employee.pic
         };
 
         let choices = ['choices.employee.email', 'choices.employee.call'];
@@ -49,11 +49,11 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
         let info = `${employee.fullname.replace(/\b\w/g, function(l: any) {return l.toUpperCase() }) || ''}\n${employee.title || ''}\n${employee.location || ''}\n${employee.email || ''}\n${employee.phone || ''}`;
         let message = new BotBuilder.Message(session)
           .text(info)
-          .attachments([photo])
           .addAttachment(confirmKeyboard)
           .sourceEvent({
             directline: {
-              componentType: 'confirm'
+              componentType: 'confirm',
+              image: employee.pic
             }
           });
 
