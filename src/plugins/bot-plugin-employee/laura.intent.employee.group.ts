@@ -11,8 +11,7 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
   let groupEntity: BotBuilder.IEntity = BotBuilder.EntityRecognizer.findEntity(args.entities, 'laura.group');
   let entityName = groupEntity ? groupEntity.entity : '';
 
-  console.log(entityName);
-  http.get(`http://gsb.devel.e-paths.com/role/${entityName}`, (res) => {
+  http.get(`http://gsb.devel.e-paths.com/role/${encodeURIComponent(entityName)}`, (res) => {
     const statusCode = res.statusCode;
     const contentType = res.headers['content-type'];
     let error;
@@ -29,12 +28,12 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
       session.endDialog(error.message);
     }
 
-    res.setEncoding('utf8');
     let rawData = '';
     res.on('data', (chunk) => rawData += chunk);
     res.on('end', () => {
       try {
-        let employees: Employee[] = JSON.parse(rawData);
+        console.log(rawData)
+        let employees: Employee[] = JSON.parse(rawData).data || [];
         console.log(employees);
 
         let choicesKeyboard = new BotBuilderExt.Keyboard(session).buttons(
@@ -43,7 +42,8 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
               session,
               employee.fullname,
               employee.fullname)
-              .image(employee.pic || 'https://the-pastry-box-project.net/assets/basiks/front/icons/github.png'))
+              .image(employee.pic || 'https://the-pastry-box-project.net/assets/basiks/front/icons/github.png')
+            )
           );
 
         let message = new BotBuilder.Message(session)
