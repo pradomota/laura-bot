@@ -20,7 +20,8 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
     };
 
     let suggestions = new BotBuilderExt.Keyboard(session).buttons([
-      BotBuilder.CardAction.imBack(session, session.gettext('suggestion.products.head.value'), 'suggestion.products.head.title')
+      BotBuilder.CardAction.imBack(session, session.gettext('suggestion.products.head.value', productEntity.entity),
+        'suggestion.products.head.title')
     ]).toAttachment();
 
     let meesage = new BotBuilder.Message(session)
