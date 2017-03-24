@@ -11,7 +11,16 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
   let employeeEntity: BotBuilder.IEntity = BotBuilder.EntityRecognizer.findEntity(args.entities, 'laura.employee');
 
   if (!employeeEntity) {
-    session.endDialog(session.gettext('employee.boss.mega-boss'));
+    let photo: BotBuilder.IAttachment = {
+      contentType: 'image/png',
+      contentUrl: 'http://cdn.memegenerator.es/imagenes/memes/full/20/38/20389496.jpg'
+    };
+
+    let message = new BotBuilder.Message(session)
+      .text(session.gettext('employee.boss.mega-boss'))
+      .attachments([photo]);
+
+    session.endDialog(message);
     return;
   }
 
