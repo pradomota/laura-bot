@@ -15,6 +15,8 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
     return;
   }
 
+  let entityName = employeeEntity ? employeeEntity.entity : '';
+
   http.get(`http://gsb.devel.e-paths.com/boss/${encodeURIComponent(entityName)}`, (res) => {
     const statusCode = res.statusCode;
     const contentType = res.headers['content-type'];

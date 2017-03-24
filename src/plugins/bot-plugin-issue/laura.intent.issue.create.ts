@@ -1,5 +1,6 @@
 import { BotBuilder, BotBuilderExt, logger } from '@telefonica/bot-core';
 
+import http = require('http');
 
 export default [
     describeIssue,
@@ -50,9 +51,6 @@ function confirmIssue(session: BotBuilder.Session, result: BotBuilder.IDialogRes
 
 function showIssueSummary(session: BotBuilder.Session, result: BotBuilderExt.IPromptConfirmResult, next: any) {
     if (result.resumed === BotBuilder.ResumeReason.completed && result.response) {
-
-
-
       http.get(`http://gsb.devel.e-paths.com/issue/${encodeURIComponent(session.dialogData.issueText)}`, (res) => {
         const statusCode = res.statusCode;
         const contentType = res.headers['content-type'];
@@ -81,33 +79,12 @@ function showIssueSummary(session: BotBuilder.Session, result: BotBuilderExt.IPr
           }
         });
       }).on('error', (e) => {
-        console.log(`Got error: ${e.message}`);
-        session.endDialog(e.message);
-      });
-    }
-
-
-        let context: Context = {
-            userId: session.userData.msisdn
+        session.send('issues.create.failed');
+        var result = {
+            resumed: BotBuilder.ResumeReason.notCompleted,
+            error: e
         };
-
-        issueService.createIssue(context, session.dialogData.issueText)
-            .then((data) => {
-                session.send(session.gettext('issues.create.newissue.main', data.issue_id));
-                session.endDialog('issues.create.newissue.detail');
-            })
-            .catch((err: Error) => {
-                logger.error(err, 'Request to FPA failed');
-                session.send('issues.create.failed');
-                var result = {
-                    resumed: BotBuilder.ResumeReason.notCompleted,
-                    error: err
-                };
-                session.endDialogWithResult(result);
-            });
-    } else if (result.resumed === BotBuilder.ResumeReason.canceled && result.intent) {
-        session.replaceDialog(result.intent, {entities: result.entities, intent: result.intent});
-    } else {
-        session.endDialog('core.cancel');
+        session.endDialogWithResult(result);
+      });
     }
 }
