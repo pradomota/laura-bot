@@ -38,7 +38,7 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
 
         let photo: BotBuilder.IAttachment = {
           contentType: 'image/png',
-          contentUrl: employee.pick || 'https://the-pastry-box-project.net/assets/basiks/front/icons/github.png'
+          contentUrl: employee.pick
         };
 
         let choices = ['choices.employee.email', 'choices.employee.call'];
@@ -46,7 +46,7 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
           choices.map(choice => BotBuilder.CardAction.imBack(session, session.gettext(choice), choice))
         );
 
-        let info = `### ${employee.fullname.replace(/\b\w/g, function(l: any) {return l.toUpperCase() }) || ''}\n${employee.title || ''}\n${employee.location || ''}\n${employee.email || ''}\n${employee.phone || ''}`;
+        let info = `${employee.fullname.replace(/\b\w/g, function(l: any) {return l.toUpperCase() }) || ''}\n${employee.title || ''}\n${employee.location || ''}\n${employee.email || ''}\n${employee.phone || ''}`;
         let message = new BotBuilder.Message(session)
           .text(info)
           .attachments([photo])

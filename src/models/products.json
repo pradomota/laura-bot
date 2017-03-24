@@ -9,3 +9,77 @@
     }
   ]
 }
+{
+  "luis_schema_version": "1.3.0",
+  "name": "tef",
+  "desc": "Bot Model Fri Mar 24 2017 09:13:09 GMT+0100 (CET)",
+  "culture": "es-es",
+  "intents": [
+    {
+      "name": "laura.intent.products.find"
+    }
+  ],
+  "entities": [
+    {
+      "name": "laura.product"
+    }
+  ],
+  "composites": [],
+  "bing_entities": [],
+  "actions": [],
+  "model_features": [
+    {
+      "activated": true,
+      "mode": true,
+      "name": "laura.product",
+      "words": "cuarta plataforma,latch,luca"
+    }
+  ],
+  "regex_features": [],
+  "utterances": [
+    {
+      "text": "¿qué es cuarta plataforma?",
+      "intent": "laura.intent.products.find",
+      "entities": [
+        {
+          "entity": "laura.product",
+          "startPos": 3,
+          "endPos": 4
+        }
+      ]
+    },
+    {
+      "text": "¿qué sabes de cuarta plataforma?",
+      "intent": "laura.intent.products.find",
+      "entities": [
+        {
+          "entity": "laura.product",
+          "startPos": 4,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "dime algo del producto cuarta plataforma",
+      "intent": "laura.intent.products.find",
+      "entities": [
+        {
+          "entity": "laura.product",
+          "startPos": 4,
+          "endPos": 5
+        }
+      ]
+    },
+    {
+      "text": "¿conoces el producto cuarta plataforma?",
+      "intent": "laura.intent.products.find",
+      "entities": [
+        {
+          "entity": "laura.product",
+          "startPos": 4,
+          "endPos": 5
+        }
+      ]
+    }
+  ]
+}
