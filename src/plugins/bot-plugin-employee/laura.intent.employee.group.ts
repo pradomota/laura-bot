@@ -50,7 +50,8 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
           .text(`Estos son los ${entityName} que hay en CDO`)
           .addAttachment(choicesKeyboard);
 
-        return BotBuilderExt.Prompts.confirm(session, message);
+        let choices = employees.map(employee => employee.fullname);
+        return BotBuilderExt.Prompts.choice(session, message, choices);
       } catch (e) {
         console.log(e.message);
       }
