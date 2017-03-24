@@ -24,14 +24,13 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
         'suggestion.products.head.title')
     ]).toAttachment();
 
-    let meesage = new BotBuilder.Message(session)
+    let message = new BotBuilder.Message(session)
       .text(productInfo)
       .attachments([attachment])
       .sourceEvent({
         directline: {
-          suggestions: suggestions,
-          image: 'https://static.os-eu-mad-1.instantservers.telefonica.com/images/info.png'
+          suggestions: suggestions
         }
       });
-    session.endDialog(meesage);
+    session.endDialog(message);
 }

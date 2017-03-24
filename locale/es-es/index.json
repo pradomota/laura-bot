@@ -10,6 +10,8 @@
     ],
     "suggestion.products.head.value": "¿quién es el responsable de %s?",
     "suggestion.products.head.title": "¿Quién es el responsable?",
+    "choices.employee.email": "Enviar mail",
+    "choices.employee.call": "Llamar",
     "seed.hello": [
       "Hola!",
       "Que pasa!",
