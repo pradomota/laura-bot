@@ -60,7 +60,8 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
         let options: BotBuilderExt.IPromptConfirmOptions = {
           yesNoChoices: choices
         };
-        return BotBuilderExt.Prompts.confirm(session, message, options);
+        session.send('¡Oido cocina!');
+        session.endDialog(message, options);
       } catch (e) {
         console.log(e.message);
       }
