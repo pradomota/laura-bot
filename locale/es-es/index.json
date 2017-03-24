@@ -43,9 +43,19 @@
       "Tu ya eres todo un jefazo!"
     ],
     "issues.create.question": [
-      "Quieres dar de alta una incidencia?"
+      "Cuentanos... ¿Qué te ocurre?",
+      "Ok! Dispara!"
     ],
     "issues.create.newissue.detail": [
       "incidencia creada!"
+    ],
+    "issues.create.confirm.main": [
+      "¿Quieres dar de alta la incidencia?"
+    ]
+    "issues.create.accept": [
+      "ok"
+    ],
+    "issues.create.cancel": [
+      "no"
     ]
 }

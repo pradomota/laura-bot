@@ -35,8 +35,7 @@ function confirmIssue(session: BotBuilder.Session, result: BotBuilder.IDialogRes
             .addAttachment(confirmKeyboard)
             .sourceEvent({
                 directline: {
-                    componentType: 'confirm',
-                    image: 'https://staticresources.os-eu-mad-1.instantservers.telefonica.com/yot/ic_issue.png'
+                    componentType: 'confirm'
                 }
             });
 
