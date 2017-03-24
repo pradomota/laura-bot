@@ -36,7 +36,7 @@
     "webdebug": "node --debug-brk lib/app.js"
   },
   "dependencies": {
-    "@telefonica/bot-core": "^2.0.0",
+    "@telefonica/bot-core": "^1.33.0",
     "dotenv": "^2.0.0"
   },
   "devDependencies": {
