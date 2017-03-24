@@ -11,7 +11,7 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
   let employeeEntity: BotBuilder.IEntity = BotBuilder.EntityRecognizer.findEntity(args.entities, 'laura.employee');
   let entityName = employeeEntity ? employeeEntity.entity : '';
 
-  http.get(`http://gsb.devel.e-paths.com/person/${entityName}`, (res) => {
+  http.get(`http://gsb.devel.e-paths.com/person/${encodeURIComponent(entityName)}`, (res) => {
     const statusCode = res.statusCode;
     const contentType = res.headers['content-type'];
     let error;
@@ -46,7 +46,7 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
           choices.map(choice => BotBuilder.CardAction.imBack(session, session.gettext(choice), choice))
         );
 
-        let info = `${employee.fullname.replace(/\b\w/g, function(l: any) {return l.toUpperCase() }) || ''}\n${employee.title || ''}\n${employee.location || ''}\n\n${employee.email || ''}\n${employee.phone || ''}`;
+        let info = `### ${employee.fullname.replace(/\b\w/g, function(l: any) {return l.toUpperCase() }) || ''}\n${employee.title || ''}\n${employee.location || ''}\n${employee.email || ''}\n${employee.phone || ''}`;
         let message = new BotBuilder.Message(session)
           .text(info)
           .attachments([photo])
