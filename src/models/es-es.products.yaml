@@ -1,0 +1,12 @@
+phraselist:
+  laura.product: # list of services
+    words:
+      - cuarta plataforma
+      - latch
+      - luca
+
+laura.intent.products.find:
+  - ¿qué es [cuarta plataforma:laura.product]?
+  - ¿qué sabes de [cuarta plataforma:laura.product]?
+  - dime algo del producto [cuarta plataforma:laura.product]
+  - ¿conoces el producto [cuarta plataforma:laura.product]?

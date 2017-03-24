@@ -15,7 +15,8 @@ let bot = new Bot({
     // The plugins to use
     plugins: [
         path.join(__dirname, 'plugins', 'notes'),
-        path.join(__dirname, 'plugins', 'bot-plugin-greeting')
+        path.join(__dirname, 'plugins', 'bot-plugin-greeting'),
+        path.join(__dirname, 'plugins', 'bot-plugin-product')
     ],
     // Language settings
     localizerSettings: {
