@@ -47,7 +47,7 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
         );
 
         let info = `${employee.fullname.replace(/\b\w/g, function(l: any) {return l.toUpperCase() }) || ''}\n${employee.title || ''}\n${employee.location || ''}\n${employee.email || ''}\n${employee.phone || ''}`;
-        let suggestions = new BotBuilderExt.Keyboard(session).buttons([card(session, 'suggestion.employee.boss')]).toAttachment();
+        let suggestions = new BotBuilderExt.Keyboard(session).buttons([card(session, 'suggestion.employee.boss', employee.fullname.replace(/\b\w/g, function(l: any) {return l.toUpperCase() }))]).toAttachment();
         let message = new BotBuilder.Message(session)
           .text(info)
           .addAttachment(confirmKeyboard)
@@ -74,6 +74,6 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
   });
 }
 
-function card(session: BotBuilder.Session, msgidPrefix: string): BotBuilder.CardAction {
-    return BotBuilder.CardAction.imBack(session, session.gettext(msgidPrefix + '.title'), msgidPrefix + '.value');
+function card(session: BotBuilder.Session, msgidPrefix: string, name: string): BotBuilder.CardAction {
+    return BotBuilder.CardAction.imBack(session, session.gettext(msgidPrefix + '.title'), session.gettext(msgidPrefix + '.value', name));
 }
