@@ -60,7 +60,7 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
         let options: BotBuilderExt.IPromptConfirmOptions = {
           yesNoChoices: choices
         };
-        session.send('¡Ojito con el Jefe :grin: !');
+        session.send('¡Ojito con el Jefe!');
         session.endDialog(message, options);
       } catch (e) {
         console.log(e.message);
