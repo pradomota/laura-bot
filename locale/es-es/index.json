@@ -26,7 +26,7 @@
       "Hasta nunqui"
     ],
     "seed.salut": [
-      "Buenas pollas te comías"
+      "Buenas colas te comías"
     ],
     "product.info.cuarta-plataforma": [
       "La **Cuarta Plataforma** es el ecosistema que conecta datos, dispositivos, redes y personas con el fin de dar el poder sobre sus datos a los clientes, ofreciéndoles transparencia y control sobre ellos."
@@ -41,5 +41,11 @@
     ],
     "employee.boss.mega-boss": [
       "Tu ya eres todo un jefazo!"
+    ],
+    "issues.create.question": [
+      "Quieres dar de alta una incidencia?"
+    ],
+    "issues.create.newissue.detail": [
+      "incidencia creada!"
     ]
 }
