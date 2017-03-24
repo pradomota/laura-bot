@@ -47,13 +47,15 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
         );
 
         let info = `${employee.fullname.replace(/\b\w/g, function(l: any) {return l.toUpperCase() }) || ''}\n${employee.title || ''}\n${employee.location || ''}\n${employee.email || ''}\n${employee.phone || ''}`;
+        let suggestions = new BotBuilderExt.Keyboard(session).buttons([card(session, 'suggestion.employee.boss')]).toAttachment();
         let message = new BotBuilder.Message(session)
           .text(info)
           .addAttachment(confirmKeyboard)
           .sourceEvent({
             directline: {
               componentType: 'confirm',
-              image: employee.pic
+              image: employee.pic,
+              suggestions: suggestions
             }
           });
 
@@ -70,4 +72,8 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
     console.log(`Got error: ${e.message}`);
     session.endDialog(e.message);
   });
+}
+
+function card(session: BotBuilder.Session, msgidPrefix: string): BotBuilder.CardAction {
+    return BotBuilder.CardAction.imBack(session, session.gettext(msgidPrefix + '.title'), msgidPrefix + '.value');
 }

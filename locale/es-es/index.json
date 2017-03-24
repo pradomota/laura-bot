@@ -10,6 +10,8 @@
     ],
     "suggestion.products.head.value": "¿quién es el responsable de %s?",
     "suggestion.products.head.title": "¿Quién es el responsable?",
+    "suggestion.employee.boss.value": "¿quién es el jefe de %s?",
+    "suggestion.employee.boss.title": "¿Quién es su jefe?",
     "suggestion.employee.head.value": "¿quién es %s?",
     "choices.employee.email": "Enviar mail",
     "choices.employee.call": "Llamar",
