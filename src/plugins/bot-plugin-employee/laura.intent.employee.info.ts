@@ -75,5 +75,5 @@ function dialog(session: BotBuilder.Session, args: any, next: Function) {
 }
 
 function card(session: BotBuilder.Session, msgidPrefix: string, name: string): BotBuilder.CardAction {
-    return BotBuilder.CardAction.imBack(session, session.gettext(msgidPrefix + '.title'), session.gettext(msgidPrefix + '.value', name));
+    return BotBuilder.CardAction.imBack(session, session.gettext(msgidPrefix + '.value', name), session.gettext(msgidPrefix + '.title'));
 }
